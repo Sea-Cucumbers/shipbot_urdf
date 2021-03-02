@@ -1,6 +1,21 @@
 <launch>
-  <include
-    file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <param name="robot_description" command="cat $(find shipbot_urdf)/urdf/shipbot.urdf" />
+  <rosparam file="$(find shipbot_urdf)/config/controllers.yaml" command="load"/>
+
   <node
     name="tf_footprint_base"
     pkg="tf"
@@ -10,11 +25,19 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find shipbot_urdf)/urdf/shipbot_urdf.urdf -urdf -model shipbot_urdf"
+    args="-file $(find shipbot_urdf)/urdf/shipbot.urdf -urdf -model shipbot"
     output="screen" />
   <node
     name="fake_joint_calibration"
     pkg="rostopic"
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" />
+  <node
+    name="controller_spawner"
+    pkg="controller_manager"
+    type="spawner"
+    respawn="false"
+    output="screen"
+    ns="/shipbot"
+    args="rotary1_controller rotary2_controller rotary3_controller rotary4_controller rotary5_controller joint_state_controller"/>
 </launch>

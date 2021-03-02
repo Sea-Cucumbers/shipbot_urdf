@@ -3,7 +3,12 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="shipbot_urdf">
+  name="shipbot">
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/shipbot</robotNamespace>
+    </plugin>
+  </gazebo>
   <link
     name="link0">
     <inertial>
@@ -102,6 +107,15 @@
       effort="7"
       velocity="2" />
   </joint>
+  <transmission name="rotary1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rotary1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rotary1_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="link2">
     <inertial>
@@ -160,6 +174,15 @@
       effort="7"
       velocity="2.2" />
   </joint>
+  <transmission name="rotary2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rotary2">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rotary2_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="link3">
     <inertial>
@@ -218,6 +241,15 @@
       effort="7"
       velocity="2.2" />
   </joint>
+  <transmission name="rotary3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rotary3">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rotary3_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="link4">
     <inertial>
@@ -276,6 +308,15 @@
       effort="7"
       velocity="2.2" />
   </joint>
+  <transmission name="rotary4_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rotary4">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rotary4_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="link5">
     <inertial>
@@ -334,4 +375,13 @@
       effort="7"
       velocity="2.2" />
   </joint>
+  <transmission name="rotary5_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rotary5">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rotary5_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 </robot>

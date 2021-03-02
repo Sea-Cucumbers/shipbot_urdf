@@ -1,0 +1,30 @@
+shipbot:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+
+  # Position Controllers ---------------------------------------
+  rotary1_controller:
+    type: position_controllers/JointPositionController
+    joint: rotary1
+    pid: {p: 3.0, i: 0.0, d: 0.0}
+
+  rotary2_controller:
+    type: position_controllers/JointPositionController
+    joint: rotary2
+    pid: {p: 3.0, i: 0.0, d: 0.0}
+
+  rotary3_controller:
+    type: position_controllers/JointPositionController
+    joint: rotary3
+    pid: {p: 3.0, i: 0.0, d: 0.0}
+
+  rotary4_controller:
+    type: position_controllers/JointPositionController
+    joint: rotary4
+    pid: {p: 3.0, i: 0.0, d: 0.0}
+
+  rotary5_controller:
+    type: position_controllers/JointPositionController
+    joint: rotary5
+    pid: {p: 3.0, i: 0.0, d: 0.0}
