@@ -9,6 +9,14 @@
       <robotNamespace>/shipbot</robotNamespace>
     </plugin>
   </gazebo>
+  <link name="world"/>
+  <joint 
+    name="world_to_link0"
+    type="fixed">
+    <origin xyz="0 0 0.025" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="link0"/>
+  </joint>
   <link
     name="link0">
     <inertial>
