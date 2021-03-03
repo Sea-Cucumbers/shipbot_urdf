@@ -392,4 +392,16 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <link name="end_effector" />
+  <joint
+    name="link5_to_end_effector"
+    type="fixed">
+    <origin
+      xyz="0 0 0.044386" 
+      rpy="0 0 0" />
+    <parent
+      link="link5" />
+    <child
+      link="end_effector"/>
+  </joint>
 </robot>
