@@ -13,7 +13,7 @@
   <joint 
     name="world_to_link0"
     type="fixed">
-    <origin xyz="0 0 0.025" rpy="0 0 0"/>
+    <origin xyz="0 0 0.0889" rpy="0 0 0"/>
     <parent link="world"/>
     <child link="link0"/>
   </joint>
@@ -235,7 +235,7 @@
     name="rotary3"
     type="continuous">
     <origin
-      xyz="0.425 0 -0.03105"
+      xyz="0.4064 0 -0.03105"
       rpy="3.1416 0 3.1416" />
     <parent
       link="link2" />
@@ -302,7 +302,7 @@
     name="rotary4"
     type="continuous">
     <origin
-      xyz="-0.375 0 -0.03"
+      xyz="-0.3302 0 -0.03"
       rpy="3.1416 0 3.1416" />
     <parent
       link="link3" />
