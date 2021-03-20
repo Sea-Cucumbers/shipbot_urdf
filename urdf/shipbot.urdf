@@ -98,7 +98,7 @@
     </collision>
   </link>
   <joint
-    name="rotary1"
+    name="shoulder1"
     type="continuous">
     <origin
       xyz="0 0 0"
@@ -115,12 +115,12 @@
       effort="7"
       velocity="2" />
   </joint>
-  <transmission name="rotary1_trans">
+  <transmission name="shoulder1_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary1">
+    <joint name="shoulder1">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rotary1_motor">
+    <actuator name="shoulder1_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -165,7 +165,7 @@
     </collision>
   </link>
   <joint
-    name="rotary2"
+    name="shoulder2"
     type="continuous">
     <origin
       xyz="-0.06803 -0.00048045 0.070706"
@@ -182,12 +182,12 @@
       effort="7"
       velocity="2.2" />
   </joint>
-  <transmission name="rotary2_trans">
+  <transmission name="shoulder2_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary2">
+    <joint name="shoulder2">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rotary2_motor">
+    <actuator name="shoulder2_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -232,7 +232,7 @@
     </collision>
   </link>
   <joint
-    name="rotary3"
+    name="elbow"
     type="continuous">
     <origin
       xyz="0.4064 0 -0.03105"
@@ -249,12 +249,12 @@
       effort="7"
       velocity="2.2" />
   </joint>
-  <transmission name="rotary3_trans">
+  <transmission name="elbow_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary3">
+    <joint name="elbow">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rotary3_motor">
+    <actuator name="elbow_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -299,7 +299,7 @@
     </collision>
   </link>
   <joint
-    name="rotary4"
+    name="wrist1"
     type="continuous">
     <origin
       xyz="-0.3302 0 -0.03"
@@ -316,12 +316,12 @@
       effort="7"
       velocity="2.2" />
   </joint>
-  <transmission name="rotary4_trans">
+  <transmission name="wrist1_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary4">
+    <joint name="wrist1">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rotary4_motor">
+    <actuator name="wrist1_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -366,7 +366,7 @@
     </collision>
   </link>
   <joint
-    name="rotary5"
+    name="wrist2"
     type="continuous">
     <origin
       xyz="0.06855 0 0.05605"
@@ -383,12 +383,12 @@
       effort="7"
       velocity="2.2" />
   </joint>
-  <transmission name="rotary5_trans">
+  <transmission name="wrist2_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary5">
+    <joint name="wrist2">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rotary5_motor">
+    <actuator name="wrist2_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>

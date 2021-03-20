@@ -4,27 +4,27 @@ shipbot:
     publish_rate: 100
 
   # Position Controllers ---------------------------------------
-  rotary1_controller:
+  shoulder1_controller:
     type: position_controllers/JointPositionController
-    joint: rotary1
+    joint: shoulder1
     pid: {p: 3.0, i: 0.0, d: 0.0}
 
-  rotary2_controller:
+  shoulder2_controller:
     type: position_controllers/JointPositionController
-    joint: rotary2
+    joint: shoulder2
     pid: {p: 3.0, i: 0.0, d: 0.0}
 
-  rotary3_controller:
+  elbow_controller:
     type: position_controllers/JointPositionController
-    joint: rotary3
+    joint: elbow
     pid: {p: 3.0, i: 0.0, d: 0.0}
 
-  rotary4_controller:
+  wrist1_controller:
     type: position_controllers/JointPositionController
-    joint: rotary4
+    joint: wrist1
     pid: {p: 3.0, i: 0.0, d: 0.0}
 
-  rotary5_controller:
+  wrist2_controller:
     type: position_controllers/JointPositionController
-    joint: rotary5
+    joint: wrist2
     pid: {p: 3.0, i: 0.0, d: 0.0}
