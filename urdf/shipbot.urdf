@@ -4,6 +4,11 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="shipbot">
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/shipbot</robotNamespace>
+    </plugin>
+  </gazebo>
   <link
     name="shoulder1">
     <inertial>
@@ -591,4 +596,16 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <link name="ee_tip" />
+  <joint
+    name="ee_to_tip"
+    type="fixed">
+    <origin
+      xyz="4.4386e-02 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="end_effector" />
+    <child
+      link="ee_tip" />
+  </joint>
 </robot>
