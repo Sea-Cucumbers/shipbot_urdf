@@ -6,7 +6,7 @@ shipbot:
   # Position Controllers ---------------------------------------
   shoulder1_joint_controller:
     type: position_controllers/JointPositionController
-	joint: shoulder1_joint
+    joint: shoulder1_joint
     pid: {p: 3.0, i: 0.0, d: 0.0}
 
   shoulder2_joint_controller:
