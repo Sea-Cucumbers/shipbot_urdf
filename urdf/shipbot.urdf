@@ -4,24 +4,11 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="shipbot">
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/shipbot</robotNamespace>
-    </plugin>
-  </gazebo>
-  <link name="world"/>
-  <joint 
-    name="world_to_link0"
-    type="fixed">
-    <origin xyz="0 0 0.025" rpy="0 0 0"/>
-    <parent link="world"/>
-    <child link="link0"/>
-  </joint>
   <link
-    name="link0">
+    name="shoulder1">
     <inertial>
       <origin
-        xyz="0.0022949 -0.015486 -0.0003338"
+        xyz="0.0017749 -0.015005 0.014511"
         rpy="0 0 0" />
       <mass
         value="0.1595" />
@@ -39,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link0.STL" />
+          filename="package://shipbot_urdf/meshes/shoulder1.STL" />
       </geometry>
       <material
         name="">
@@ -53,25 +40,25 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link0.STL" />
+          filename="package://shipbot_urdf/meshes/shoulder1.STL" />
       </geometry>
     </collision>
   </link>
   <link
-    name="link1">
+    name="shoulder_bracket">
     <inertial>
       <origin
-        xyz="-0.043048 -0.0089791 0.064419"
+        xyz="-0.0251596398035713 0.00489556177056548 0.0331697763315541"
         rpy="0 0 0" />
       <mass
-        value="0.23698" />
+        value="0.0774818559595891" />
       <inertia
-        ixx="0.00018609"
-        ixy="3.2809E-07"
-        ixz="4.3594E-07"
-        iyy="8.7525E-05"
-        iyz="9.4885E-06"
-        izz="0.00011907" />
+        ixx="5.2387418878781E-05"
+        ixy="3.79492909514494E-07"
+        ixz="3.62230052179126E-07"
+        iyy="3.0951423394497E-05"
+        iyz="4.91346364427254E-06"
+        izz="3.4660534733545E-05" />
     </inertial>
     <visual>
       <origin
@@ -79,12 +66,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link1.STL" />
+          filename="package://shipbot_urdf/meshes/shoulder_bracket.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.79216 0.81961 0.93333 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -93,20 +80,20 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link1.STL" />
+          filename="package://shipbot_urdf/meshes/shoulder_bracket.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="rotary1"
+    name="shoulder1_joint"
     type="continuous">
     <origin
-      xyz="0 0 0"
+      xyz="0 0 0.0295"
       rpy="0 0 0" />
     <parent
-      link="link0" />
+      link="shoulder1" />
     <child
-      link="link1" />
+      link="shoulder_bracket" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -115,30 +102,21 @@
       effort="7"
       velocity="2" />
   </joint>
-  <transmission name="rotary1_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary1">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="rotary1_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
   <link
-    name="link2">
+    name="shoulder2">
     <inertial>
       <origin
-        xyz="0.2125 4.0162E-10 0.017645"
+        xyz="-0.0150052602899881 -0.00177485502213229 0.0145106701989118"
         rpy="0 0 0" />
       <mass
-        value="0.10699" />
+        value="0.15950182865601" />
       <inertia
-        ixx="2.5301E-05"
-        ixy="-6.5998E-11"
-        ixz="3.3983E-11"
-        iyy="0.00085049"
-        iyz="-6.1615E-13"
-        izz="0.00085915" />
+        ixx="5.65734175202923E-05"
+        ixy="-4.57501713130988E-06"
+        ixz="5.14046310472052E-08"
+        iyy="8.44102585583931E-05"
+        iyz="7.37059865622984E-08"
+        izz="0.000133702409498726" />
     </inertial>
     <visual>
       <origin
@@ -146,12 +124,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link2.STL" />
+          filename="package://shipbot_urdf/meshes/shoulder2.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.75294 0.75294 0.75294 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -160,52 +138,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link2.STL" />
+          filename="package://shipbot_urdf/meshes/shoulder2.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="rotary2"
-    type="continuous">
+    name="shoulder_bracket_to_shoulder2"
+    type="fixed">
     <origin
-      xyz="-0.06803 -0.00048045 0.070706"
+      xyz="-0.038 0 0.05605"
       rpy="-1.5708 0 1.5708" />
     <parent
-      link="link1" />
+      link="shoulder_bracket" />
     <child
-      link="link2" />
+      link="shoulder2" />
     <axis
-      xyz="0 0 1" />
-    <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="7"
-      velocity="2.2" />
+      xyz="0 0 0" />
   </joint>
-  <transmission name="rotary2_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary2">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="rotary2_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
   <link
-    name="link3">
+    name="upper_arm">
     <inertial>
       <origin
-        xyz="-0.17155 -0.0012809 -0.0063977"
+        xyz="0.212500026159838 4.01612049172329E-10 0.0186949458790184"
         rpy="0 0 0" />
       <mass
-        value="0.44203" />
+        value="0.106988184234906" />
       <inertia
-        ixx="0.00014615"
-        ixy="9.15E-06"
-        ixz="-1.5422E-06"
-        iyy="0.0010282"
-        iyz="-1.4761E-07"
-        izz="0.0011426" />
+        ixx="2.53008670308476E-05"
+        ixy="-6.59980959301446E-11"
+        ixz="3.39832386858971E-11"
+        iyy="0.00085049020237028"
+        iyz="-6.16151856268549E-13"
+        izz="0.000859153921810749" />
     </inertial>
     <visual>
       <origin
@@ -213,12 +177,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link3.STL" />
+          filename="package://shipbot_urdf/meshes/upper_arm.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.75294 0.75294 0.75294 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -227,52 +191,43 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link3.STL" />
+          filename="package://shipbot_urdf/meshes/upper_arm.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="rotary3"
+    name="shoulder2_joint"
     type="continuous">
     <origin
-      xyz="0.425 0 -0.03105"
-      rpy="3.1416 0 3.1416" />
+      xyz="0 0 0.0295"
+      rpy="0 0 0" />
     <parent
-      link="link2" />
+      link="shoulder2" />
     <child
-      link="link3" />
+      link="upper_arm" />
     <axis
       xyz="0 0 1" />
     <limit
       lower="-1.57"
       upper="1.57"
       effort="7"
-      velocity="2.2" />
+      velocity="2" />
   </joint>
-  <transmission name="rotary3_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary3">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="rotary3_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
   <link
-    name="link4">
+    name="elbow">
     <inertial>
       <origin
-        xyz="0.043568 0.0084987 0.049764"
+        xyz="-0.0150052602899881 -0.00177485502213209 -0.0149893298010882"
         rpy="0 0 0" />
       <mass
-        value="0.23698" />
+        value="0.15950182865601" />
       <inertia
-        ixx="0.00018609"
-        ixy="3.2809E-07"
-        ixz="-4.3594E-07"
-        iyy="8.7525E-05"
-        iyz="-9.4885E-06"
-        izz="0.00011907" />
+        ixx="5.65734175202926E-05"
+        ixy="-4.5750171313096E-06"
+        ixz="5.14046310472677E-08"
+        iyy="8.44102585583932E-05"
+        iyz="7.37059865622215E-08"
+        izz="0.000133702409498726" />
     </inertial>
     <visual>
       <origin
@@ -280,12 +235,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link4.STL" />
+          filename="package://shipbot_urdf/meshes/elbow.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.79216 0.81961 0.93333 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -294,52 +249,43 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link4.STL" />
+          filename="package://shipbot_urdf/meshes/elbow.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="rotary4"
+    name="elbow_joint"
     type="continuous">
     <origin
-      xyz="-0.375 0 -0.03"
-      rpy="3.1416 0 3.1416" />
+      xyz="0.425 0 0"
+      rpy="0 0 0" />
     <parent
-      link="link3" />
+      link="upper_arm" />
     <child
-      link="link4" />
+      link="elbow" />
     <axis
       xyz="0 0 1" />
     <limit
       lower="-1.57"
       upper="1.57"
       effort="7"
-      velocity="2.2" />
+      velocity="2" />
   </joint>
-  <transmission name="rotary4_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary4">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="rotary4_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
   <link
-    name="link5">
+    name="lower_arm">
     <inertial>
       <origin
-        xyz="-1.3878E-17 -5.5511E-17 0.023703"
+        xyz="0.169097816057885 5.39232147822588E-09 -0.0164356732453066"
         rpy="0 0 0" />
       <mass
-        value="0.022265" />
+        value="0.123024502209737" />
       <inertia
-        ixx="2.9665E-06"
-        ixy="-5.8444E-23"
-        ixz="-3.4064E-22"
-        iyy="2.9665E-06"
-        iyz="-5.2853E-21"
-        izz="4.3029E-06" />
+        ixx="3.30070240062502E-05"
+        ixy="3.50203653744403E-11"
+        ixz="-1.64505552521933E-06"
+        iyy="0.000859406830946791"
+        iyz="1.98754726261901E-10"
+        izz="0.000875229739799047" />
     </inertial>
     <visual>
       <origin
@@ -347,12 +293,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link5.STL" />
+          filename="package://shipbot_urdf/meshes/lower_arm.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.50196 0.50196 0.50196 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -361,35 +307,243 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://shipbot_urdf/meshes/link5.STL" />
+          filename="package://shipbot_urdf/meshes/lower_arm.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="rotary5"
+    name="elbow_to_lower_arm"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.0295"
+      rpy="0 0 0" />
+    <parent
+      link="elbow" />
+    <child
+      link="lower_arm" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="wrist1">
+    <inertial>
+      <origin
+        xyz="-0.0150052618198359 -0.00177485500962708 0.0145106702066844"
+        rpy="0 0 0" />
+      <mass
+        value="0.159501823139725" />
+      <inertia
+        ixx="5.65734174644208E-05"
+        ixy="-4.57501754725969E-06"
+        ixz="5.14045829753543E-08"
+        iyy="8.44102499522071E-05"
+        iyz="7.37059898387608E-08"
+        izz="0.000133702400953528" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shipbot_urdf/meshes/wrist1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shipbot_urdf/meshes/wrist1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lower_arm_to_wrist1"
+    type="fixed">
+    <origin
+      xyz="0.375 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="lower_arm" />
+    <child
+      link="wrist1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="wrist_bracket">
+    <inertial>
+      <origin
+        xyz="0.0251596398035705 -0.00489556177058142 0.0331697763315538"
+        rpy="0 0 0" />
+      <mass
+        value="0.0774818559595891" />
+      <inertia
+        ixx="5.2387418878781E-05"
+        ixy="3.79492909514175E-07"
+        ixz="-3.62230052179438E-07"
+        iyy="3.0951423394497E-05"
+        iyz="-4.91346364427252E-06"
+        izz="3.46605347335451E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shipbot_urdf/meshes/wrist_bracket.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shipbot_urdf/meshes/wrist_bracket.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist1_joint"
     type="continuous">
     <origin
-      xyz="0.06855 0 0.05605"
+      xyz="0 0 0.0295"
+      rpy="0 0 0" />
+    <parent
+      link="wrist1" />
+    <child
+      link="wrist_bracket" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="7"
+      velocity="2" />
+  </joint>
+  <link
+    name="wrist2">
+    <inertial>
+      <origin
+        xyz="-0.00177485461464166 0.0150052602545855 0.0145106701992344"
+        rpy="0 0 0" />
+      <mass
+        value="0.159501828686492" />
+      <inertia
+        ixx="8.44102589733558E-05"
+        ixy="4.57501971428307E-06"
+        ixz="7.37060015172651E-08"
+        iyy="5.6573417265169E-05"
+        iyz="-5.14046306591711E-08"
+        izz="0.000133702409657919" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shipbot_urdf/meshes/wrist2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shipbot_urdf/meshes/wrist2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bracket_to_wrist2"
+    type="fixed">
+    <origin
+      xyz="0.038 0 0.05605"
       rpy="0 1.5708 0" />
     <parent
-      link="link4" />
+      link="wrist_bracket" />
     <child
-      link="link5" />
+      link="wrist2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="end_effector">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 -5.55111512312578E-17 0.023702706255984"
+        rpy="0 0 0" />
+      <mass
+        value="0.0222650078147918" />
+      <inertia
+        ixx="2.96649808571935E-06"
+        ixy="-6.17198402783708E-23"
+        ixz="-3.3849748545068E-22"
+        iyy="2.96649808571935E-06"
+        iyz="-5.28855180486717E-21"
+        izz="4.30294027693138E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shipbot_urdf/meshes/end_effector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://shipbot_urdf/meshes/end_effector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist2_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 0.03055"
+      rpy="0 0 0" />
+    <parent
+      link="wrist2" />
+    <child
+      link="end_effector" />
     <axis
       xyz="0 0 1" />
     <limit
       lower="-1.57"
       upper="1.57"
       effort="7"
-      velocity="2.2" />
+      velocity="2" />
   </joint>
-  <transmission name="rotary5_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rotary5">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="rotary5_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
 </robot>

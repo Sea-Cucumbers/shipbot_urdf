@@ -39,5 +39,5 @@
     respawn="false"
     output="screen"
     ns="/shipbot"
-    args="rotary1_controller rotary2_controller rotary3_controller rotary4_controller rotary5_controller joint_state_controller"/>
+    args="shoulder1_joint_controller shoulder2_joint_controller elbow_joint_controller wrist1_joint_controller wrist2_joint_controller joint_state_controller"/>
 </launch>
