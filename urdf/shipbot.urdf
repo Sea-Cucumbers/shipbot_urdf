@@ -102,6 +102,15 @@
       effort="7"
       velocity="2" />
   </joint>
+  <transmission name="shoulder1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder1_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="shoulder1_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="shoulder2">
     <inertial>
@@ -213,6 +222,15 @@
       effort="7"
       velocity="2" />
   </joint>
+  <transmission name="shoulder2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder2_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="shoulder2_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="elbow">
     <inertial>
@@ -271,6 +289,15 @@
       effort="7"
       velocity="2" />
   </joint>
+  <transmission name="elbow_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="elbow_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="lower_arm">
     <inertial>
@@ -435,6 +462,15 @@
       effort="7"
       velocity="2" />
   </joint>
+  <transmission name="wrist1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist1_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist1_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="wrist2">
     <inertial>
@@ -545,5 +581,26 @@
       upper="1.57"
       effort="7"
       velocity="2" />
+  </joint>
+  <transmission name="wrist2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist2_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist2_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="end_effector" />
+  <joint
+    name="link5_to_end_effector"
+    type="fixed">
+    <origin
+      xyz="0 0 0.044386" 
+      rpy="0 0 0" />
+    <parent
+      link="link5" />
+    <child
+      link="end_effector"/>
   </joint>
 </robot>
