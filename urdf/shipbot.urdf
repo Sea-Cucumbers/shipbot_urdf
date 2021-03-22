@@ -53,7 +53,7 @@
     name="shoulder_bracket">
     <inertial>
       <origin
-        xyz="-0.0251596398035713 0.00489556177056548 0.0331697763315541"
+        xyz="0 0 0.041275"
         rpy="0 0 0" />
       <mass
         value="0.093" />
@@ -160,7 +160,7 @@
     name="shoulder_bracket_to_shoulder2"
     type="fixed">
     <origin
-      xyz="-0.038 0 0.041275"
+      xyz="-0.0428625 0 0.041275"
       rpy="-1.5708 0 1.5708" />
     <parent
       link="shoulder_bracket" />
@@ -173,7 +173,7 @@
     name="upper_arm">
     <inertial>
       <origin
-        xyz="0.1665 0 0.0186949458790184"
+        xyz="0.1665 0 0.0174625"
         rpy="0 0 0" />
       <mass
         value="0.331" />
@@ -307,7 +307,7 @@
     name="lower_arm">
     <inertial>
       <origin
-        xyz="0.169097816057885 0 -0.0164356732453066"
+        xyz="0.169097816057885 0 -0.017462"
         rpy="0 0 0" />
       <mass
         value="0.322" />
@@ -413,7 +413,7 @@
     name="wrist_bracket">
     <inertial>
       <origin
-        xyz="0.0251596398035705 -0.00489556177058142 0.0331697763315538"
+        xyz="0 0 0.041275"
         rpy="0 0 0" />
       <mass
         value="0.093" />
@@ -520,7 +520,7 @@
     name="bracket_to_wrist2"
     type="fixed">
     <origin
-      xyz="0.038 0 0.041275"
+      xyz="0.0428625 0 0.041275"
       rpy="0 1.5708 0" />
     <parent
       link="wrist_bracket" />
