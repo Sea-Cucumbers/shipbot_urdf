@@ -16,7 +16,7 @@
         xyz="0.0017749 -0.015005 0.014511"
         rpy="0 0 0" />
       <mass
-        value="0.475" />
+        value="0.345" />
       <inertia
         ixx="8.441E-05"
         ixy="4.575E-06"
@@ -93,7 +93,7 @@
     name="shoulder1_joint"
     type="continuous">
     <origin
-      xyz="0 0 0.0295"
+      xyz="0 0 0.031"
       rpy="0 0 0" />
     <parent
       link="shoulder1" />
@@ -123,7 +123,7 @@
         xyz="-0.0150052602899881 -0.00177485502213229 0.0145106701989118"
         rpy="0 0 0" />
       <mass
-        value="0.345" />
+        value="0.475" />
       <inertia
         ixx="5.65734175202923E-05"
         ixy="-4.57501713130988E-06"
@@ -213,7 +213,7 @@
     name="shoulder2_joint"
     type="continuous">
     <origin
-      xyz="0 0 0.0295"
+      xyz="0 0 0.0451"
       rpy="0 0 0" />
     <parent
       link="shoulder2" />
@@ -280,14 +280,14 @@
     name="elbow_joint"
     type="continuous">
     <origin
-      xyz="0.333 0 0"
+      xyz="0.381 0 0"
       rpy="0 0 0" />
     <parent
       link="upper_arm" />
     <child
       link="elbow" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-1.57"
       upper="1.57"
@@ -347,7 +347,7 @@
     name="elbow_to_lower_arm"
     type="fixed">
     <origin
-      xyz="0 0 -0.0295"
+      xyz="0 0 -0.031"
       rpy="0 0 0" />
     <parent
       link="elbow" />
@@ -400,7 +400,7 @@
     name="lower_arm_to_wrist1"
     type="fixed">
     <origin
-      xyz="0.381 0 0"
+      xyz="0.333 0 0"
       rpy="0 0 0" />
     <parent
       link="lower_arm" />
@@ -453,7 +453,7 @@
     name="wrist1_joint"
     type="continuous">
     <origin
-      xyz="0 0 0.0295"
+      xyz="0 0 0.031"
       rpy="0 0 0" />
     <parent
       link="wrist1" />
@@ -573,7 +573,7 @@
     name="wrist2_joint"
     type="continuous">
     <origin
-      xyz="0 0 0.03055"
+      xyz="0 0 0.031"
       rpy="0 0 0" />
     <parent
       link="wrist2" />
@@ -601,7 +601,7 @@
     name="ee_to_tip"
     type="fixed">
     <origin
-      xyz="0.09525 0 0"
+      xyz="0 0 0.09525"
       rpy="0 0 0" />
     <parent
       link="end_effector" />
