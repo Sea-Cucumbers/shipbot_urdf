@@ -94,7 +94,7 @@
     type="continuous">
     <origin
       xyz="0 0 0.031"
-      rpy="0 0 0" />
+      rpy="0 0 -3.14159" />
     <parent
       link="shoulder1" />
     <child
