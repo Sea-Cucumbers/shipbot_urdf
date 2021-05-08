@@ -160,7 +160,7 @@
     name="shoulder_bracket_to_shoulder2"
     type="fixed">
     <origin
-      xyz="-0.0428625 0 0.041275"
+      xyz="-0.0428625 0 0.04"
       rpy="-1.5708 0 1.5708" />
     <parent
       link="shoulder_bracket" />
@@ -601,7 +601,7 @@
     name="ee_to_tip"
     type="fixed">
     <origin
-      xyz="0 0 0.09525"
+      xyz="0 0 0.085725"
       rpy="0 0 0" />
     <parent
       link="end_effector" />
